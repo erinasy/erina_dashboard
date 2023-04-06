@@ -40,15 +40,13 @@ Form Kamar
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="form-label mt-4">Kode Type Kamar</label>
-                        {{-- dropdown rakbuku --}}
+                        {{-- dropdown typekamar --}}
                         <div class="drop-down">
                             <div class="btn-group">
                                 <select id="typeKamar-dropdown" class="form-control" name="typeKamar_id">
                                     <option value="">-- Pilih Type Kamar--</option>
                                     @foreach ($typeKamar as $t)
-                                    <option value="{{$t->typeKamar_id}}">
-                                        {{$t->typeKamar_id}} - {{$t->name_typeKamar}}
-                                    </option>
+                                    <option value="{{$t->typeKamar_id}}">{{$t->name_typeKamar}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -70,8 +68,8 @@ Form Kamar
                       <input class="form-control" type="file" id="photo" name="photo">
                     </div>
                     <br>
-                    <button type="submit" name="add" class="btn btn-primary float-right">Add Data</button>
-                    <a href='/customers' class="btn btn-info">Kembali</a>
+                    <button type="submit" name="add" class="btn btn-success">Simpan Data</button>
+                    <a href='/customers' class="btn btn-secondary">Kembali</a>
             </form>
                 </div>
             </div>

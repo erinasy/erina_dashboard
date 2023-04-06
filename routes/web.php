@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\TypeKamarController;
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\ReservasiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +27,4 @@ Route::resource('customers', CustomersController::class);
 Route::resource('kamar', KamarController::class);
 Route::resource('typeKamar', TypeKamarController::class);
 Route::resource('fasilitas', FasilitasController::class);
+Route::resource('reservasi', ReservasiController::class);

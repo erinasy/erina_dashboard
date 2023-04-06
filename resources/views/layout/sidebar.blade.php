@@ -59,7 +59,7 @@
             </a>
           </li>
           <li>
-            <a href="kamar">
+            <a href="reservasi">
               <i class="bi bi-circle"></i><span>Data Reservasi</span>
             </a>
           </li>

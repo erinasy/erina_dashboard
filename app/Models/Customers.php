@@ -21,9 +21,9 @@ class Customers extends Model
         'alamat'
     ];
 
-    public function customers()
+    public function reservasi()
     {
-        return $this->hasOne(Customers::class, 'fasilitas_id');
+        return $this->HasOne(Reservasi::class, 'customers_id');
     }
 
     

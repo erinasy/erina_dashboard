@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Kamar;
-use App\Models\TypeKamar;
+use App\Models\Reservasi;
 
-class KamarController extends Controller
+class ReservasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,11 @@ class KamarController extends Controller
      */
     public function index()
     {
-        //$kamars = Kamar::all();
-        //return view('kamar.index',['kamar'=>$kamars]);
-        $kamars = Kamar::with('type_kamar')->get();
-        return view('kamar.index',['kamar'=>$kamars]);
+        $reservasi = Reservasi::with('customersReservasi', 'kamarReservasi','fasilitasReservasi')->get();
+        return view('reservasi.index',[
+            'reservasi'=>$reservasi
+        ]);
+
     }
 
     /**
@@ -28,8 +28,7 @@ class KamarController extends Controller
      */
     public function create()
     {
-        $typeKamar = TypeKamar::get();
-        return view('kamar.create', compact(['typeKamar']));
+        //
     }
 
     /**
@@ -38,19 +37,9 @@ class KamarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTypeRequest $request)
+    public function store(Request $request)
     {
-        $data=$request->only([
-            'kamar_id',
-            'lokasi',
-            'typeKamar_id',
-            'no_kamar',
-            'keterangan',
-            'photo'
-        ]);
-        // if true, redirect to index
-        Kamar::create($data);
-        return redirect()->route('kamar.index')->with('success', 'Add data success!');
+        //
     }
 
     /**

@@ -10,18 +10,20 @@ class Kamar extends Model
 {
     use HasFactory;
     protected $table = 'kamar';
-    
+    protected $primaryKey ='kamar_id';
+
     protected $fillable = [
-        'kamar_id',
-        'lokasi',15,
+        'lokasi',
         'typeKamar_id',
         'no_kamar',
         'keterangan',
         'photo'
     ];
 
-    public function typeKamar()
+    //relasi one to many dengan typeKamar
+    public function type_kamar()
     {
         return $this->belongsTo(TypeKamar::class, 'typeKamar_id');
     }
+    //public function reservasi(){return $this->HasMany(Reservasi::class, 'kamar_id');}
 }

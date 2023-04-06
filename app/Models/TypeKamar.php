@@ -11,15 +11,15 @@ class TypeKamar extends Model
     use HasFactory;
 
     protected $table = 'type_kamar';
+    protected $primaryKey ='typeKamar_id';
 
     protected $fillable = [
-        'typeKamar_id',
         'name_typeKamar',
         'harga',
     ];
 
     public function kamar()
     {
-        return $this->hasOne(Kamar::class,'typeKamar_id');
+        return $this->hasMany(Kamar::class,'typeKamar_id');
     }
 }

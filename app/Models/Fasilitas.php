@@ -18,8 +18,8 @@ class Fasilitas extends Model
         'photo'
     ];
 
-    public function fasilitas()
+    public function reservasi()
     {
-        return $this->hasMany(Fasilitas::class, 'fasilitas_id');
+        return $this->HasMany(Reservasi::class, 'fasilitas_id');
     }
 }

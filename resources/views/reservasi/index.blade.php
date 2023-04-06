@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('title')
-Data Kamar
+Data Reservasi
 @endsection
 
 @section('content')
@@ -23,36 +23,36 @@ Data Kamar
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Default Table</h5>
-              <a href="/kamar/create" class="btn btn-primary">Tambah Data</a> 
+              <a href="/reservasi/create" class="btn btn-primary">Tambah Data</a> 
                  <br><br>
               <!-- Default Table -->
               <table class="table">
                 <thead>
                   <tr>
+                    <th scope="col">ID Reservasi</th>
+                    <th scope="col">ID Customers</th>
                     <th scope="col">ID Kamar</th>
-                    <th scope="col">Lokasi</th>
-                    <th scope="col">Type Kamar</th>
-                    <th scope="col">No_Kamar</th>
-                    <th scope="col">Keterangan</th>
-                    <th scope="col">Photo</th>
+                    <th scope="col">ID Fasilitas</th>
+                    <th scope="col">Check In</th>
+                    <th scope="col">Check Out</th>
+                    <th scope="col">Total Pembayaran</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach($kamar as $a)
+                    @foreach($reservasi as $data)
                   <tr>
-                         <td>{{ $a->kamar_id }}</td>
-                         <td>{{ $a->lokasi}}</td>
-                         <td>{{ $a->type_kamar->name_typeKamar}}</td>
-                         <td>{{ $a->no_kamar}}</td>
-                         <td>{{ $a->keterangan}}</td>
+                         <td>{{ $data->reservasi_id }}</td>
+                         <td>{{ $data->customersReservasi->name_customers}}</td>
+                         <td>{{ $data->kamarReservasi->kamar_id}}</td>
+                         <td>{{ $data->fasilitasReserfasi->fasilitas_id}}</td>
+                         <td>{{ $data->check_in}}</td>
+                         <td>{{ $data->check_out}}</td>
+                         <td>{{ $data->total_pembayaran}}</td>
                          <td>
-                            <img width="150px" src="{{asset('storage/'.$a->photo)}}" alt="image">
-                         </td>
-                         <td>
-                            <form action="/kamar/{{$a->kamar_id}}" method="post">
-                             <a href="/kamar/{{$a->kamar_id}}/edit" class="btn btn-warning">Edit</a>
-                             <a href="/kamar/{{$a->kamar_id}}" class="btn btn-info">View</a>
+                            <form action="/reservasi/{{$data->reservasi_id}}" method="post">
+                             <a href="/reservasi/{{$data->reservasi_id}}/edit" class="btn btn-warning">Edit</a>
+                             <a href="/reservasi/{{$data->reservasi_id}}" class="btn btn-info">View</a>
                                  @csrf
                                  @method('DELETE')
                                 <button type="submit" name="delete" class="btn btn-danger">Delete</button>
