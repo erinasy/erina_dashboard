@@ -11,9 +11,10 @@ class Customers extends Model
     use HasFactory;
 
     protected $table = 'customers';
+    protected $primaryKey ='id';
     
     protected $fillable = [
-        'customers_id',
+        'id',
         'name_customers',
         'nik',
         'jk',
@@ -21,10 +22,6 @@ class Customers extends Model
         'alamat'
     ];
 
-    public function reservasi()
-    {
-        return $this->HasOne(Reservasi::class, 'customers_id');
-    }
 
     
 }

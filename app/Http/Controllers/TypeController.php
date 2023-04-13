@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\TypeKamar;
+use App\Models\TypeRoomModel;
 
-class TypeKamarController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class TypeKamarController extends Controller
      */
     public function index()
     {
-        $typeKamar = TypeKamar::all();
-        return view('typeKamar.index',['typeKamar'=>$typeKamar]);
+        $typeRoom = TypeRoomModel::all();
+        return view('typeRooms.index',['typeRooms'=>$typeRoom]);
     }
 
     /**
@@ -25,8 +25,7 @@ class TypeKamarController extends Controller
      */
     public function create()
     {
-        return view('typeKamar.create');
-    
+        //
     }
 
     /**
@@ -37,11 +36,7 @@ class TypeKamarController extends Controller
      */
     public function store(Request $request)
     {
-         //add data
-        TypeKamar::create($request->all());
-         // if true, redirect to index
-         return redirect()->route('typeKamar.index')
-         ->with('success', 'Add data success!');
+        //
     }
 
     /**

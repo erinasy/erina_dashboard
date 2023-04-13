@@ -41,16 +41,16 @@ Data Customers
                 <tbody>
                     @foreach($customers as $a)
                   <tr>
-                         <td>{{ $a->customers_id }}</td>
+                         <td>{{ $a->id }}</td>
                          <td>{{ $a->name_customers }}</td>
                          <td>{{ $a->nik }}</td>
                          <td>{{ $a->jk }}</td>
                          <td>{{ $a->no_tlp }}</td>
                          <td>{{ $a->alamat }}</td>
                          <td>
-                            <form action="/customers/{{$a->customers_id}}" method="post">
-                             <a href="/customers/{{$a->customers_id}}/edit" class=" btn btn-warning">Edit</a>
-                             <a href="/customers/{{$a->customers_id}}" class="btn btn-info">View</a>
+                            <form action="/customers/{{$a->id}}" method="post">
+                             <a href="/customers/{{$a->id}}/edit" class=" btn btn-warning">Edit</a>
+                             <a href="/customers/{{$a->id}}" class="btn btn-info">View</a>
                                  @csrf
                                  @method('DELETE')
                                 <button type="submit" name="delete" class="btn btn-danger">Delete</button>

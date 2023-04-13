@@ -51,7 +51,8 @@ class CustomersController extends Controller
      */
     public function show($id)
     {
-        //
+        $customers = Customers::find($id);
+        return view('customers.show',['customers'=>$customers]);
     }
 
     /**
@@ -76,7 +77,15 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $customers = Customers::find($id);
+        $customers->id = $request->id;
+        $customers->name_customers = $request->name_customers;
+        $customers->nik = $request->nik;
+        $customers->jk = $request->jk;
+        $customers->no_tlp = $request->no_tlp;
+        $customers->alamat = $request->alamat;
+        $customers->save();
+        return redirect()->route('customers.index');
     }
 
     /**
@@ -87,6 +96,8 @@ class CustomersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customers = Customers::find($id);
+        $customers->delete();
+        return redirect()->route('customers.index');
     }
 }

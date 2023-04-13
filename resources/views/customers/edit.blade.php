@@ -17,7 +17,7 @@ Form Customers
     </div><!-- End Page Title -->
     <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-15">
             <div class="card">
             <br></br>
                     <div class="card-body">
@@ -29,41 +29,69 @@ Form Customers
             <form action="/customers/{{$customers->id}}" method="post"> 
                     {{csrf_field()}}
                     @method('PUT')
-            <form action="/customers" method="post"  enctype="multipart/form-data">
-                @csrf
+                <input type="hidden" name="id" value="{{$customers->id}}"></br>
                     <div class="form-group">
-                        <label for="customers_id">Customers ID</label>
-                        <input type="text" class="form-control" 
-                        required="required" name="customers_id" value="{{$buku->judul}}" placeholder="Masukkan id"></br>
+                        <label for="id">ID Customers</label>
+                        <input type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ $customers->id}}">
+                        @error('id')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
+                    </br>
                     </div>
                     <div class="form-group">
-                        <label for="name_customers">Nama</label>
-                        <input type="text" class="form-control" 
-                        required="required" name="name_customers" placeholder="Masukkan Nama"></br>
+                        <label for="name_customers">Nama Customers</label>
+                        <input type="text" class="form-control @error('name_customers') is-invalid @enderror" name="name_customers" value="{{ $customers->name_customers}}">
+                        @error('name_customers')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
+                        </br>
                     </div>
                     <div class="form-group">
                         <label for="nik">NIK</label>
-                        <input type="text" class="form-control" 
-                        required="required" name="nik"></br>
-                    </div class="form-group">
+                        <input type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ $customers->nik}}">
+                        @error('nik')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
+                        </br>
+                    </div>
                     <div class="form-group">
                         <label for="jk">Jenis Kelamin</label>
-                        <input type="text" class="form-control" 
-                        required="required" name="jk"></br>
-                    </div class="form-group">
+                        <input type="text" class="form-control @error('jk') is-invalid @enderror" name="jk" value="{{ $customers->jk}}">
+                        @error('jk')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
+                        </br>
+                    </div>
                     <div class="form-group">
-                        <label for="no_tlp">No Telepon</label>
-                        <input type="text" class="form-control" 
-                        required="required" name="no_tlp"></br>
+                        <label for="no_tlp">Nomor Telepon</label>
+                        <input type="text" class="form-control @error('no_tlp') is-invalid @enderror" name="no_tlp" value="{{ $customers->no_tlp}}">
+                        @error('no_tlp')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
+                        </br>
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <input type="text" class="form-control" 
-                        required="required" name="alamat"></br>
+                        <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ $customers->alamat}}">
+                        @error('alamat')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
+                        </br>
                     </div>
-                    <br>
-                    <button type="submit" name="add" class="btn btn-primary float-right">Add Data</button>
-                    <a href='/customers' class="btn btn-info">Kembali</a>
+                    <button type="submit" name="edit" class="btn btn-primary float-right">Save</button>
+                    <a href='/customers' class="btn btn-secondary">Kembali</a>
             </form>
                 </div>
             </div>

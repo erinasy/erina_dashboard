@@ -29,9 +29,9 @@ Form Customers
             <form action="/customers" method="post"  enctype="multipart/form-data"> 
                     @csrf
                     <div class="form-group">
-                        <label for="customers_id">Customers ID</label>
+                        <label for="id">Customers ID</label>
                         <input type="text" class="form-control" 
-                        required="required" name="customers_id" placeholder="Masukkan id"></br>
+                        required="required" name="id" placeholder="Masukkan id"></br>
                     </div>
                     <div class="form-group">
                         <label for="name_customers">Nama</label>
@@ -59,8 +59,8 @@ Form Customers
                         required="required" name="alamat" placeholder="Masukkan Alamat"></br>
                     </div>
                     <br>
-                    <button type="submit" name="add" class="btn btn-primary float-right">Add Data</button>
-                    <a href='/customers' class="btn btn-info">Kembali</a>
+                    <button type="submit" name="add" class="btn btn-success">Simpan Data</button>
+                    <a href='/customers' class="btn btn-secondary">Kembali</a>
             </form>
                 </div>
             </div>

@@ -1,12 +1,12 @@
 @extends('layout.main')
 
 @section('title')
-Data Type Kamar
+Data Room
 @endsection
 
 @section('content')
 <div class="pagetitle">
-      <h1>Tabel Type Kamar</h1>
+      <h1>Tabel Type Room</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
@@ -23,28 +23,28 @@ Data Type Kamar
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Default Table</h5>
-              <a href="/typeKamar/create" class="btn btn-primary">Tambah Data</a> 
+              <a href="/type/create" class="btn btn-primary">Tambah Data</a> 
                  <br><br>
               <!-- Default Table -->
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">ID Type Kamar</th>
-                    <th scope="col">Type Kamar</th>
-                    <th scope="col">Harga</th>
+                    <th scope="col">ID Type</th>
+                    <th scope="col">Name Type</th>
+                    <th scope="col">Total</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach($typeKamar as $a)
+                    @foreach($typeRooms as $a)
                   <tr>
-                         <td>{{ $a->typeKamar_id }}</td>
-                         <td>{{ $a->name_typeKamar}}</td>
-                         <td>{{ $a->harga}}</td>
+                         <td>{{ $a->id }}</td>
+                         <td>{{ $a->name_type}}</td>
+                         <td>{{ $a->total}}</td>
                          <td>
-                            <form action="/typeKamar/{{$a->typeKamar_id}}" method="post">
-                             <a href="/typeKamar/{{$a->typeKamar_id}}/edit" class="btn btn-warning">Edit</a>
-                             <a href="/typeKamar/{{$a->typeKamar_id}}" class="btn btn-info">View</a>
+                            <form action="/type/{{$a->id}}" method="post">
+                             <a href="/type/{{$a->id}}/edit" class="btn btn-warning">Edit</a>
+                             <a href="/type/{{$a->id}}" class="btn btn-info">View</a>
                                  @csrf
                                  @method('DELETE')
                                 <button type="submit" name="delete" class="btn btn-danger">Delete</button>
